@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>Javascript Challenge</title>
+		<style>
+		 #map {
+		   width: 50%;
+		   margin: auto;
+		   height: 500px;
+		   background-color: grey;
+		 }
+		</style>
+	</head>
+
+	<body>
+	    
+	    <% if (requestedZipCode.length > 0) { %>
+	    	You're in luck, there are <%=results.length %> recycling spots within <%=miles %> miles of <%=requestedZipCode %>.
+	    <% }  else if (boroughSearched.length > 0){ %>
+	   		 You're in luck, there are <%=results.length %> recycling spots in <%=boroughSearched %>. 
+	    <% } else { %>
+	    	You're in luck, there are <%=results.length %> recycling spots around you.
+	    <% } %>	
+	    
+	    <div id="map"></div>
+
+	   <ol>
+	   	<% results.forEach(function(result){ %>
+	   	<li><strong>Name:</strong> <%= result.name %>
+	   	<strong>Location:</strong> <%= result.address %>
+	   	</li>
+	  	 <% }); %>
+	   </ol>
+
+	<script>
+		var clientResults = <%- JSON.stringify(results) %>
+		var clientMapCenter = <%- JSON.stringify(mapCenter) %>
+		var mapZoom = <%- JSON.stringify(mapZoom) %>
+    </script> 
+ <script type="text/javascript" src="/javascripts/map.js"></script> 
+	 <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_WaLs-BvP0COukEMyDKmiYKC4glgxLY8&callback=initMap">
+    </script>	
+       
+	</body>
+</html>

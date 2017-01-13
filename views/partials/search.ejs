@@ -1,0 +1,36 @@
+<p>Not all trash cans are created equally. Recycling Spot is a handy way to find recycling bins near you, so you can give that plastic water bottle a near life, rather than tossing it in a regular trashcan.</p>
+<h1>Find a spot</h1>
+<div class="search">
+
+	
+
+ 	<form action="http://127.0.0.1:8081/search" method="POST" name="recyclingsearch" id="recyclingsearch">
+
+ 		<div name="currentLocation">Spots Around Me</div>
+ 		<input type="hidden" name="currentLat">
+ 		<input type="hidden" name="currentLng">
+
+	    <div class="search__address">
+	    	<select name="miles" form="recyclingsearch">
+		    	<option value="2">2</option>
+		    	<option value="1">1</option>
+		    	<option value=".5">1/2</option>
+	    	</select> miles of 
+		   <label>Zipcode<input type="number" name="address"></label>  
+	     </div>
+	     or 
+	     <div class="search__borough">
+		     <strong>Borough</strong>
+
+		     <input type="checkbox" name="boroughs[]" value="Manhattan">Manhattan
+		     <input type="checkbox" name="boroughs[]" value="Bronx">Bronx
+		     <input type="checkbox" name="boroughs[]" value="Queens">Queens
+		     <input type="checkbox" name="boroughs[]" value="Brooklyn">Brooklyn
+		     <input type="checkbox" name="boroughs[]" value="Staten Island">Staten Island
+		     
+		     
+	    </div>
+	    <input type="submit" value="Submit">
+	</form>
+</div>
+	     
